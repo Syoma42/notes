@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject, switchMap, take } from 'rxjs';
+import { Observable, Subject, take } from 'rxjs';
 import { INote } from '../models/INote.interface';
 
 @Injectable({
