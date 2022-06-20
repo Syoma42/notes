@@ -16,12 +16,7 @@ export class NotesComponent implements OnInit, AfterViewInit {
   constructor(private notesService: NotesService) {} 
 
   public ngOnInit(): void {
-    this.notes$ = this.notesService.updateNotes$
-    .pipe(
-      switchMap(() => {
-        return this.notesService.getNotes$();
-      })
-    );
+    this.setNotes();
   }
 
   public ngAfterViewInit(): void {
@@ -41,6 +36,15 @@ export class NotesComponent implements OnInit, AfterViewInit {
 
   public sendToTop(i: number): void {
     this.notesService.sendToTop(i);
+  }
+
+  private setNotes(): void {
+    this.notes$ = this.notesService.updateNotes$
+    .pipe(
+      switchMap(() => {
+        return this.notesService.getNotes$();
+      })
+    );
   }
 }
 
