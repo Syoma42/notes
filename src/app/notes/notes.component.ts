@@ -10,7 +10,7 @@ import { NotesService } from '../services/notes.service';
 })
 export class NotesComponent implements OnInit, AfterViewInit {
 
-  public notes$!: Observable<INote[]>;
+  public notes$: Observable<INote[]>;
   public text: string = ''; 
   
   constructor(private notesService: NotesService) {} 
