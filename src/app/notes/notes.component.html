@@ -1,0 +1,12 @@
+<ul> 
+    <ng-container *ngIf="notes$ | async as notes">
+        <li *ngFor="let note of notes; let i = index"> 
+            {{ note.text }} 
+            <button (click)="remove(note)">remove</button>
+            <button (click)="sendToTop(i)" *ngIf="i > 0">move to top</button>
+        </li>
+    </ng-container>
+</ul> 
+
+<textarea [(ngModel)]="text"></textarea> 
+<button (click)="add()">Add</button> 
